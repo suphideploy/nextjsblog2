@@ -1,21 +1,29 @@
-import Image from 'next/image'
+'use client'
+import { useState } from 'react'
 import styles from './page.module.css'
 
 
 export default function Home() {
+  const [name,setName]=useState("Anil")  
+ //<h1>EVENTS, FUNCTION AND STATE</h1>
+
+  const apple=()=>{
+    setName("Suphi")
+  }
+  const InnerComp =()=> {
+    return (
+      <h1>Inner Component</h1>
+    )
+
+  }
   return (
     <main className={styles.main}>
-      <User name='Suphi'/>
-      <User name='No Name'/>
-     <h1>Home Page</h1>
+     <h1>EVENTS, FUNCTION AND STATE {name}</h1>
+      
+      <button onClick={()=>apple()}>Click me</button>
+      {InnerComp()}
     </main>
   )
 }
 
-const User=(props)=>{
-  return(
-    <div>
-      <h2>User name is {props.name}</h2>
-    </div>
-  )
-}
+
